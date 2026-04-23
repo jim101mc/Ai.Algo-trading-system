@@ -1,4 +1,4 @@
-# AI Trading System (Backtesting + Live Execution + Analytics)
+# AI.Algo Trading System (Backtesting + Live Execution + Analytics)
 
 A modular algorithmic trading system built in Python for research, backtesting, and live execution using MetaTrader 5.  
 Includes a full trade lifecycle engine, risk management, and a Streamlit analytics dashboard.
