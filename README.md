@@ -66,20 +66,20 @@ tb101/
 
 ---
 
-## ⚙️ Installation
 
-### 1. Clone repository
+## Installation
+
+bash
+```markdown id="r7"
 git clone https://github.com/yourusername/ai-trading-system.git
 cd ai-trading-system
-
-### 2. Install dependencies
+```
+```markdown id="r7"
 pip install -r requirements.txt
-
-### 3. Run Streamlit dashboard
+```
+```markdown id="r7"
 streamlit run app.py
-
-### 4. Run backtest
-python -m backtesting.backtester
+```
 
 ---
 
