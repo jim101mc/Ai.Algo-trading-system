@@ -49,24 +49,6 @@ timestamp | symbol | strategy | type | entry | exit | result | pnl | equity
 
 ---
 
-## 🏗️ Project Structure
-
-tb101/
-│
-├── app.py
-├── main.py
-├── requirements.txt
-│
-├── data/
-├── strategies/
-├── execution/
-├── management/
-├── backtesting/
-├── utils/
-
----
-
-
 ## Installation
 
 bash
