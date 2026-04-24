@@ -34,7 +34,7 @@ The system includes a full trade lifecycle engine, risk management, and a Stream
 - Trade state tracking
 
 ```bash
-git clone https://github.com/yourusername/ai-trading-system.git
+git clone https://github.com/yourusername/Ai.Algo-trading-system.git
 cd ai-trading-system
 pip install -r requirements.txt
 ```
