@@ -17,7 +17,7 @@ class BacktestEngine:
         self.equity_curve = []
 
     def run(self):
-        for i in range(250, len(self.data)):  # warmup for indicators
+        for i in range(250, len(self.data)):
             window = self.data.iloc[:i]
 
             signal = self.strategy.generate_signal(window)
@@ -67,36 +67,31 @@ class BacktestEngine:
                 self._close_trade(price, "WIN")
 
     def _close_trade(self, price, result):
-    entry = self.position["entry"]
-    trade_type = self.position["type"]
+        entry = self.position["entry"]
+        trade_type = self.position["type"]
 
-    pnl = price - entry if trade_type == "BUY" else entry - price
+        pnl = price - entry if trade_type == "BUY" else entry - price
 
-    if result == "WIN":
-        self.equity += 1
-    else:
-        self.equity -= 1
+        self.equity += pnl
+        self.equity_curve.append(self.equity)
 
-    self.equity_curve.append(self.equity)
+        self.trades.append({
+            "entry": entry,
+            "exit": price,
+            "type": trade_type,
+            "result": result,
+            "pnl": pnl
+        })
 
-    self.trades.append({
-        "entry": entry,
-        "exit": price,
-        "type": trade_type,
-        "result": result,
-        "pnl": pnl
-    })
+        logger.log_trade(
+            symbol="BACKTEST",
+            strategy="ADVANCED",
+            trade_type=trade_type,
+            entry=entry,
+            exit_price=price,
+            result=result,
+            pnl=pnl,
+            equity=self.equity
+        )
 
-    # LOG IT
-    logger.log_trade(
-        symbol="BACKTEST",
-        strategy="ADVANCED",
-        trade_type=trade_type,
-        entry=entry,
-        exit_price=price,
-        result=result,
-        pnl=pnl,
-        equity=self.equity
-    )
-
-    self.position = None
+        self.position = None

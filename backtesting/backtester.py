@@ -17,7 +17,7 @@ strategy = HybridMARSI(20, 50, 14, 35, 65)
 strategy2 = AdvancedStrategy()
 
 engine = BacktestEngine(df, strategy, sl_pips=100, tp_pips=50)
-engine2 = BacktestEngine2(df, strategy2, sl_pips=100, tp_pips=50)
+engine2 = BacktestEngine(df, strategy2, sl_pips=100, tp_pips=50)
 
 #trades = engine.run()
 #trades2 = engine2.run()
